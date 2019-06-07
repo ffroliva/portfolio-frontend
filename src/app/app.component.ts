@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'portfolio-frontend';
+  selectedValue: number;
+  items: any = [
+    {view: 'aaa', value: 1},
+    {view: 'bbb', value: 2},
+  ];
+
+  click() {
+    console.log('cliquei');
+  }
 }
