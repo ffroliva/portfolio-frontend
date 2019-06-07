@@ -1,46 +1,11 @@
-<div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
-  <div class="item item-1" fxFlex="15%">Item 1</div>
-  <div class="item item-2" fxFlex="20%" fxFlexOrder="3">Item 2</div>
-  <div class="item item-3" fxFlex>Item 3</div>
-</div>
-
-<div class="container"
-     fxLayout
-     fxLayout.xs="column"
-     fxLayoutAlign="center"
-     fxLayoutGap="10px"
-     fxLayoutGap.xs="0">
-  <div class="item item-4" fxFlex fxFlexOffset="50px"  fxFlexOffset.xs="0">Item 4</div>
-  <div class="item item-5" fxFlex="200px">Item 5</div>
-</div>
-
-<h1>
-  {{title}}
-</h1>
-
-<mat-form-field>
-  <input matInput placeholder="Simple Input" [(ngModel)]="title">
-</mat-form-field>
-
-<mat-icon>home</mat-icon>
-
-<button mat-raised-button (click)="click()">I'm a button</button>
-
-<mat-form-field>
-  <mat-select placeholder="I'm a select" [(ngModel)]="selectedValue">
-    <mat-option *ngFor="let item of items" [value]="item.value">
-      {{item.view}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<router-outlet></router-outlet>
-
-<mat-card>
-  <mat-card-title> aaaa</mat-card-title>
-  <mat-card-content>bbbb</mat-card-content>
-</mat-card>
+<mat-toolbar  color="primary" mat-green  class="fixed-header">
+  <mat-toolbar-row>
+  <span><img  src="./assets/logo.png" ></span>
+  <a  mat-button  routerLink="/customer-list"  routerLinkActive="active">Customers</a>
+  <a  mat-button  routerLink="/customer-create">Create Customer</a>
+  <a  mat-button  routerLink="/login">Login</a>
+  </mat-toolbar-row>
+  </mat-toolbar>
+  <main>
+  <router-outlet  style="margin-top: 80px;"></router-outlet>
+  </main>
