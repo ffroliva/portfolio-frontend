@@ -1,9 +1,10 @@
 <mat-toolbar  color="primary"  class="fixed-header">
   <mat-toolbar-row>
-  <span><img  src="./assets/logo.png" ></span>
+  <span><img  src="./assets/logo.png" class="logo" ></span>
   <a  mat-button  routerLink="/customer-list"  routerLinkActive="active">Customers</a>
   <a  mat-button  routerLink="/customer-create">Create Customer</a>
   <a  mat-button  routerLink="/login">Login</a>
+  <a mat-icon-button [matMenuTriggerFor]="menu"></a>
   </mat-toolbar-row>
   </mat-toolbar>
   <main>

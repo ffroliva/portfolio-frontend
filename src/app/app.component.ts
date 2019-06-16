@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { environment } from '../environments/environment';
+
+import { AuthenticationService } from './_services';
+import { User } from './_models';
 
 @Component({
   selector: 'app-root',
@@ -6,14 +12,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'portfolio-frontend';
-  selectedValue: number;
-  items: any = [
-    {view: 'aaa', value: 1},
-    {view: 'bbb', value: 2},
-  ];
+  env = environment;
+  currentUser: User;
 
-  click() {
-    console.log('cliquei');
+  constructor(
+      private router: Router,
+      private authenticationService: AuthenticationService,
+  ) {
+      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
+
+  logout() {
+      this.authenticationService.logout();
+      this.router.navigate(['/login']);
   }
 }
