@@ -1,12 +1,12 @@
-<mat-toolbar  color="primary"  class="fixed-header">
+<mat-toolbar color="primary" class="fixed-header">
   <mat-toolbar-row>
-  <span><img  src="./assets/logo.png" class="logo" ></span>
-  <a  mat-button  routerLink="/customer-list"  routerLinkActive="active">Customers</a>
-  <a  mat-button  routerLink="/customer-create">Create Customer</a>
-  <a  mat-button  routerLink="/login">Login</a>
-  <a mat-icon-button [matMenuTriggerFor]="menu"></a>
+    <span><img src="./assets/logo.png" class="logo"/></span>
+    <a mat-button routerLink="/register" routerLinkActive="active">Register</a>
+    <a mat-button *ngIf="isLoggedIn()" routerLink="/logout">Logout</a>
+    <a mat-button *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
   </mat-toolbar-row>
-  </mat-toolbar>
-  <main>
-  <router-outlet  style="margin-top: 80px;"></router-outlet>
-  </main>
+</mat-toolbar>
+
+<main>
+  <router-outlet style="margin-top: 80px;"></router-outlet>
+</main>

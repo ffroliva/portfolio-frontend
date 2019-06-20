@@ -8,11 +8,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MaterialModule } from './material.module';
+
+// used to create fake backend
+import { fakeBackendProvider } from './_helpers';
+
+import { MaterialModule } from '@/material/material.module';
 
 import { ErrorInterceptor, JwtInterceptor } from './_helpers';
 import { LoginComponent } from './login';
 import { HomeComponent } from './home';
+import { RegisterComponent} from './register';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -20,6 +26,8 @@ import { HomeComponent } from './home';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    RegisterComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +43,8 @@ import { HomeComponent } from './home';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    // provider used to create fake backend
+    fakeBackendProvider,
   ],
   bootstrap: [AppComponent]
 })
